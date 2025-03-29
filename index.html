@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔧 Mobi - Mobile Repair Service</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.4/lottie.min.js"></script>
+    <style>
+        body { scroll-behavior: smooth; }
+        .card:hover { transform: scale(1.05); transition: transform 0.3s ease-in-out; }
+        .btn-primary { transition: background-color 0.3s ease-in-out; }
+        .btn-primary:hover { background-color: #004085; }
+        .icon { font-size: 2rem; color: #0d6efd; transition: color 0.3s ease-in-out; }
+        .icon:hover { color: #004085; }
+        .back-to-top { position: fixed; bottom: 20px; right: 20px; display: none; }
+        .faq-question { cursor: pointer; }
+        body { scroll-behavior: smooth; }
+        .card:hover { transform: scale(1.05); transition: transform 0.3s ease-in-out; }
+        .btn-primary { transition: background-color 0.3s ease-in-out; }
+        .btn-primary:hover { background-color: #004085; }
+        .icon { font-size: 2rem; color: #0d6efd; transition: color 0.3s ease-in-out; }
+        .icon:hover { color: #004085; }
+        .back-to-top { position: fixed; bottom: 20px; right: 20px; display: none; }
+        .faq-question { cursor: pointer; }
+        .chatbot {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            display: none;
+            flex-direction: column;
+            width: 300px;
+            height: 400px;
+            z-index: 1000;
+        }
+        .chat-header {
+            background-color: #0d6efd;
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .chat-body {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+            background-color: #f8f9fa;
+        }
+        .chat-footer {
+            display: flex;
+            padding: 10px;
+            background-color: #e9ecef;
+        }
+        #chatInput {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 20px;
+        }
+        .chat-footer button {
+            margin-left: 10px;
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary p-3 shadow">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><i class="fas fa-tools me-2"></i>Mobi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="bg-primary text-white text-center p-5 position-relative">
+        <h1 class="display-4 fw-bold">Fast & Reliable Mobile Repairs</h1>
+        <p class="lead">Get your smartphone repaired at your doorstep with original parts.</p>
+        <button class="btn btn-light mt-3" onclick="openBookingModal()">Book Now</button>
+    </section>
+
+    <section id="services" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Our Services</h2>
+            <div class="row g-4" id="service-container"></div>
+        </div>
+    </section>
+</section>
+    <section id="faq" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="q1">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#a1">
+                            How long does a typical mobile repair take at Mobi?
+                        </button>
+                    </h2>
+                    <div id="a1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">Most repairs take 30 minutes to an hour.</div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="q2">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#a2">
+                            Does Mobi provide any warranty or guarantee on repairs?
+                        </button>
+                    </h2>
+                    <div id="a2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">Yes, we provide a 3-month warranty on all repairs.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <section id="" class="py-5">
+            <div class="container my-5">
+                <div class="card shadow-lg p-4 rounded-4">
+                    <h2 class="text-center mb-4">Contact Us</h2>
+                    <form method="POST" action="{{ route('contact.submit') }}" id="contactForm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                        </div>
+    
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+    
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your phone number" required>
+                        </div>
+    
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="4" placeholder="Enter your message" required></textarea>
+                        </div>
+    
+                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                    </form>
+                    <div class="alert alert-success mt-3 d-none" id="thankYouMessage">Thank you for contacting us!</div>
+                </div>
+            </div>
+        </section>
+    
+        <script>
+            document.getElementById('contactForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // Show thank you message
+                document.getElementById('thankYouMessage').classList.remove('d-none');
+                // Clear form fields
+                this.reset();
+            });
+        </script>
+    </section>
+    
+    
+    <section>
+    <div class="chatbot" id="chatbot">
+        <div class="chat-header">Mobi Chatbot</div>
+        <div class="chat-body" id="chatBody"></div>
+        <div class="chat-footer">
+            <input type="text" id="chatInput" placeholder="Ask a question...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+</section>
+
+    <button class="btn btn-primary back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+
+  
+<button class="btn btn-primary" style="position: fixed; bottom: 20px; right: 20px;" onclick="toggleChatbot()">
+    <i class="fas fa-comment"></i>
+</button>
+
+<footer class="bg-primary text-white text-center p-3 shadow">
+    <p>&copy; 2025 Mobi. All Rights Reserved.</p>
+</footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const services = [
+            { icon: 'fa-mobile-alt', title: 'Screen Replacement', desc: 'Quick and affordable screen repair.' },
+            { icon: 'fa-battery-full', title: 'Battery Replacement', desc: 'High-quality batteries for performance.' },
+            { icon: 'fa-water', title: 'Water Damage Repair', desc: 'Professional recovery from water damage.' },
+            { icon: 'fa-microchip', title: 'Chip Level Repair', desc: 'Advanced motherboard repairs.' },
+            { icon: 'fa-cogs', title: 'Software Troubleshooting', desc: 'Resolve issues with apps and performance.' },
+            { icon: 'fa-database', title: 'Data Recovery', desc: 'Recover lost data from damaged devices.' },
+            { icon: 'fa-volume-up', title: 'Speaker & Mic Repair', desc: 'Fix distorted or non-functional audio.' },
+            { icon: 'fa-plug', title: 'Charging Port Repair', desc: 'Repair or replace faulty charging ports.' },
+            { icon: 'fa-mobile-alt', title: 'Back Glass Replacement', desc: 'Professional back glass repair.' },
+            { icon: 'fa-camera', title: 'Camera Repair & Replacement', desc: 'Restore camera clarity with high-quality parts.' },
+            { icon: 'fa-power-off', title: 'Button Repair', desc: 'Repair faulty power, home, and volume buttons.' },
+            { icon: 'fa-lock-open', title: 'Device Unlocking', desc: 'Unlock your mobile device for any carrier.' },
+            { icon: 'fa-sync-alt', title: 'Software Update', desc: 'Keep your device up-to-date with the latest software.' },
+            { icon: 'fa-shield-alt', title: 'Screen Protector Installation', desc: 'Expert installation of tempered glass.' },
+        
+            // Additional Services
+            { icon: 'fa-code-branch', title: 'Motherboard Replacement', desc: 'Complete replacement if the motherboard is beyond repair.' },
+            { icon: 'fa-signal', title: 'Network Issues', desc: 'Fix signal loss, SIM card errors, or weak connectivity.' },
+            { icon: 'fa-thermometer-half', title: 'Overheating Issues', desc: 'Diagnose and resolve overheating problems.' },
+            { icon: 'fa-fingerprint', title: 'Fingerprint Sensor Repair', desc: 'Fix or replace malfunctioning biometric sensors.' },
+            { icon: 'fa-id-badge', title: 'Face ID / Touch ID Repair', desc: 'Resolve facial or fingerprint ID issues.' },
+            { icon: 'fa-soap', title: 'Liquid Damage Cleaning', desc: 'Prevent corrosion after water damage.' },
+            { icon: 'fa-rocket', title: 'Firmware Flashing', desc: 'Reinstall or upgrade the phone firmware.' },
+            { icon: 'fa-redo', title: 'Boot Loop / Stuck on Logo', desc: 'Fix phones stuck in a boot loop or frozen on startup.' },
+            { icon: 'fa-bolt', title: 'No Power / Dead Phone', desc: 'Diagnose and repair devices that won’t power on.' },
+            { icon: 'fa-sim-card', title: 'SIM Card Reader Repair', desc: 'Resolve issues with reading SIM cards.' },
+            { icon: 'fa-link', title: 'Display Connector Issues', desc: 'Fix loose or damaged display connectors.' },
+            { icon: 'fa-headphones', title: 'Earpiece / Headphone Jack Repair', desc: 'Fix distorted or no sound issues.' },
+            { icon: 'fa-lightbulb', title: 'Backlight Repair', desc: 'Fix dim or non-functional backlighting.' },
+            { icon: 'fa-phone', title: 'Proximity Sensor Repair', desc: 'Fix sensors that fail to detect proximity during calls.' },
+            { icon: 'fa-water', title: 'Waterproofing / Seal Replacement', desc: 'Reseal devices to maintain water resistance.' },
+            { icon: 'fa-tachometer-alt', title: 'Phone Optimization', desc: 'Optimize RAM, storage, and performance.' },
+            { icon: 'fa-code-branch', title: 'Custom ROM Installation', desc: 'Install custom ROMs for performance or feature unlocking.' },
+            { icon: 'fa-microchip', title: 'IC (Integrated Circuit) Replacement', desc: 'Replace faulty IC chips for power, charging, or display.' },
+            { icon: 'fa-tools', title: 'Vibration Motor Replacement', desc: 'Replace non-functioning vibration motors.' },
+            { icon: 'fa-tools', title: 'Diagnostics Service', desc: 'Comprehensive hardware and software diagnostics.' }
+        ];
+        
+            const serviceContainer = document.getElementById('service-container');
+            serviceContainer.innerHTML = services.map(service => `
+                <div class="col-md-4">
+                    <div class="card shadow-sm border-0 text-center p-4">
+                        <i class="fas ${service.icon} icon mb-3"></i>
+                        <h5>${service.title}</h5>
+                        <p>${service.desc}</p>
+                    </div>
+                </div>
+            `).join('');
+
+            const backToTopBtn = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                backToTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+            });
+
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        function openBookingModal() {
+            alert('Booking feature coming soon!');
+        }
+
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+        function toggleChatbot() {
+            const chatbot = document.getElementById('chatbot');
+            chatbot.style.display = chatbot.style.display === 'none' ? 'block' : 'none';
+        }
+    
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const chatBody = document.getElementById('chatBody');
+            const userMessage = input.value.trim();
+    
+            if (userMessage) {
+                chatBody.innerHTML += `<div><strong>You:</strong> ${userMessage}</div>`;
+                input.value = '';
+    
+                setTimeout(() => {
+                    let botResponse = getBotResponse(userMessage);
+                    chatBody.innerHTML += `<div><strong>Bot:</strong> ${botResponse}</div>`;
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                }, 500);
+            }
+        }
+    
+        function getBotResponse(message) {
+            const responses = {
+                'hi': 'Hello! Welcome to Mobi – your trusted mobile repair service. How may I assist you today?',
+                'how long does a repair take': 'Most standard repairs are completed within 30 minutes to an hour, depending on the complexity of the issue.',
+                'do you provide warranty': 'Absolutely! We offer a 3-month warranty on all our repairs to ensure quality and customer satisfaction.',
+                'bye': 'Thank you for choosing Mobi. If you have any further questions, feel free to reach out. Have a wonderful day!'
+            };
+            
+    
+            message = message.toLowerCase();
+            return responses[message] || "I'm not sure about that. Please contact support.";
+        }
+    
+        document.getElementById('chatInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') sendMessage();
+        });
+    </script>
+</body>
+</html>
